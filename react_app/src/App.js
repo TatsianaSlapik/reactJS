@@ -9,7 +9,12 @@ function App() {
     <div className='App'>
       <Counter />
       <Header />
-      <GenreSelect genres={genres} />
+      <GenreSelect
+        genres={genres}
+        onSelect={(value) => {
+          alert(value);
+        }}
+      />
     </div>
   );
 }

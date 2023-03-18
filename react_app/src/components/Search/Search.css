@@ -14,6 +14,7 @@
     display: flex;
     height: 57px;
 }
+
 .search-var > button {
     width: 233px;
     left: 0px;
@@ -45,6 +46,7 @@
     padding: 19px;
     color: #FFFFFF;
 }
+
 .search-var > input:focus-visible {
     border: 1px solid #232323;
 }

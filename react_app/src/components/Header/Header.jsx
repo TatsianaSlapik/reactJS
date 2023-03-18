@@ -8,7 +8,11 @@ const Header = () => {
   return (
     <header className='header'>
       <img src={HeaderImg} alt='header' />
-      <Search />
+      <Search
+        onSearch={(value) => {
+          alert(value);
+        }}
+      />
     </header>
   );
 };
