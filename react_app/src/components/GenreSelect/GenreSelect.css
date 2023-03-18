@@ -1,0 +1,31 @@
+.genre {
+    display: flex;  
+    background: #232323;
+    border-bottom: 2px solid #424242;
+}
+.list{
+    padding-right: 59px;
+    
+}
+.list > a {
+    margin-right: 36px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    text-decoration: none;
+   
+}
+.list > a.active {
+    padding-bottom: 19px;
+    border-bottom: 2px solid #F65261;;
+}
+
+.list > a:hover {
+    padding-bottom: 19px;
+    border-bottom: 2px solid #F65261;
+ 
+}
