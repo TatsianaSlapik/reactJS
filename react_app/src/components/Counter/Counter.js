@@ -1,6 +1,4 @@
 import React from "react";
-
-const element = React.createElement;
 export class Counter extends React.Component {
   constructor() {
     super();
@@ -27,12 +25,20 @@ export class Counter extends React.Component {
   };
 
   render() {
-    return element(
+    return React.createElement(
       "div",
       { style: { backgroundColor: "#f65261", padding: "20px" } },
-      element("button", { onClick: this.onClickIncrement }, "Increment"),
-      element("h1", null, `${this.state.counter}`),
-      element("button", { onClick: this.onClickDecrement }, "Decrement")
+      React.createElement(
+        "button",
+        { onClick: this.onClickIncrement },
+        "Increment"
+      ),
+      React.createElement("h1", null, `${this.state.counter}`),
+      React.createElement(
+        "button",
+        { onClick: this.onClickDecrement },
+        "Decrement"
+      )
     );
   }
 }

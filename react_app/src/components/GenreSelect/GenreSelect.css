@@ -1,22 +1,22 @@
 .genre {
-    display: flex;  
+    display: flex;
     height: 56px;
     background: #232323;
     border-bottom: 2px solid #424242;
 }
 
-.list{
+.list {
     padding-right: 59px;
 }
 
 .list > button {
     margin-right: 36px;
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
-    color: #FFFFFF;
+    color: #ffffff;
     text-transform: uppercase;
     background: none;
     border: none;
@@ -24,11 +24,11 @@
 
 .list > button.active {
     padding-bottom: 19px;
-    border-bottom: 2px solid #F65261;;
+    border-bottom: 2px solid #f65261;
 }
 
 .list > button:hover {
     padding-bottom: 19px;
-    border-bottom: 2px solid #F65261;
+    border-bottom: 2px solid #f65261;
     cursor: pointer;
 }
