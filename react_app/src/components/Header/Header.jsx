@@ -10,7 +10,7 @@ const Header = () => {
       <img src={HeaderImg} alt='header' />
       <Search
         onSearch={(value) => {
-          alert(value);
+          return value;
         }}
       />
     </header>

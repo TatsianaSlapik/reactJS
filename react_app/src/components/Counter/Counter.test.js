@@ -14,7 +14,7 @@ test("component renders initial value provided in props", () => {
   expect(h1Element).toBeInTheDocument();
 });
 
-test("click event on decrement button decrements the displayed value", () => {
+test("that click event on decrement button decrements the displayed value", () => {
   render(<Counter />);
 
   const btnDecrementElement = screen.getByText("Decrement");
@@ -26,7 +26,7 @@ test("click event on decrement button decrements the displayed value", () => {
   expect(h1Element).toBeInTheDocument();
 });
 
-test("click event on increment button increments the displayed value", () => {
+test("that click event on increment button increments the displayed value", () => {
   render(<Counter />);
 
   const btnIncrementElement = screen.getByText("Increment");

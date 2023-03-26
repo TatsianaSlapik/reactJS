@@ -8,7 +8,7 @@ const GenreSelect = ({ genres, onSelect }) => {
 
   return (
     <div className='genre'>
-      <ul className='list'>
+      <ul className='list' data-testid='list'>
         {genres.map((genre) => (
           <Button
             key={genre.id}
