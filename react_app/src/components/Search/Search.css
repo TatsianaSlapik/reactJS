@@ -1,0 +1,52 @@
+.search > h1 {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 40px;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: #ffffff;
+}
+
+.search-var {
+    display: flex;
+    height: 57px;
+}
+
+.search-var > button {
+    width: 233px;
+    left: 0px;
+    top: 0px;
+    border-radius: 4px;
+    background: #f65261;
+    border: 1px solid #f65261;
+    color: #ffffff;
+    font-size: 20px;
+    margin: 0;
+
+}
+
+.search-var > button:hover {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+   
+.search-var > input {
+    position: relative;
+    width: 713px;
+    left: 0px;
+    top: 0px;
+    border-radius: 4px;
+    background: #424242;
+    border: 1px solid #424242;
+    font-size: 20px;
+    margin-right: 14px;
+    padding: 19px;
+    color: #FFFFFF;
+}
+
+.search-var > input:focus-visible {
+    border: 1px solid #232323;
+}
