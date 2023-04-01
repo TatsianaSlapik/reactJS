@@ -1,0 +1,53 @@
+.film {
+    display: grid;
+}
+.film:hover {
+    cursor: pointer;
+}
+.film-description {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    row-gap: 8px;
+    column-gap: 24px;
+    grid-template-areas:
+        "title date"
+        "genre genre";
+    margin-top: 13px;
+}
+.film-title {
+    grid-area: title;
+
+    font-size: 18px;
+    line-height: 22px;
+    color: #ffffff;
+
+    mix-blend-mode: normal;
+    opacity: 0.7;
+}
+.film-date {
+    grid-area: date;
+    width: 66px;
+    height: 26px;
+
+    border: 1px solid #555555;
+    border-radius: 4px;
+
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+
+    color: #ffffff;
+    height: 17px;
+    mix-blend-mode: normal;
+    opacity: 0.7;
+}
+.film-genre {
+    grid-area: genre;
+
+    font-size: 14px;
+    line-height: 17px;
+    color: #ffffff;
+
+    mix-blend-mode: normal;
+    opacity: 0.5;
+}
