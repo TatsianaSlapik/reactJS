@@ -1,20 +1,25 @@
 import "./App.css";
 import { Counter } from "./components/Counter/Counter";
-import GenreSelect from "./components/GenreSelect/GenreSelect";
 import Header from "./components/Header/Header";
-import { genres } from "./data/data";
+import Menu from "./components/Menu/Menu";
+import MovieDetails from "./components/MovieDetails/MovieDetails";
+import MovieTile from "./components/MovieTile/MovieTile";
+import { FILMS_DATE } from "./data/data";
 
 function App() {
   return (
     <div className='App'>
       <Counter />
       <Header />
-      <GenreSelect
-        genres={genres}
-        onSelect={(value) => {
-          alert(value);
+      <Menu />
+
+      <MovieTile
+        movie={FILMS_DATE[0]}
+        onClick={() => {
+          console.log("Movie");
         }}
       />
+      <MovieDetails movie={FILMS_DATE[0]} />
     </div>
   );
 }

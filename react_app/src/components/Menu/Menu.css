@@ -1,0 +1,6 @@
+.menu {
+    display: flex;
+    height: 56px;
+    background: #232323;
+    border-bottom: 2px solid #424242;
+}

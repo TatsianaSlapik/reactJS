@@ -2,14 +2,16 @@ import React from "react";
 
 import "./MovieTile.css";
 
-const MovieTile = ({ id, img, name, years, genre }) => {
+const MovieTile = ({ movie, onClick }) => {
   return (
-    <div className='film' key={id} onClick={() => {}}>
-      <img src={img} alt={name} />
+    <div className='film' key={movie.id} onClick={onClick}>
+      <img src={movie.img} alt={movie.name} />
       <div className='film-description'>
-        <p className='film-title'>{name}</p>
-        <p className='film-date'>{years}</p>
-        <p className='film-genre'>{genre}</p>
+        <p className='film-title'>{movie.name}</p>
+        <div className='film-date'>
+          <p>{movie.years}</p>
+        </div>
+        <p className='film-genre'>{movie.genre}</p>
       </div>
     </div>
   );

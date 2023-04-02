@@ -1,0 +1,98 @@
+.movie {
+    display: grid;
+    grid-template-areas: "movieImg movieInfo";
+    gap: 58px;
+    background: #232323;
+    padding: 90px 0 29px 60px;
+    height: 487px;
+}
+.movie-img {
+    grid-area: movieImg;
+}
+
+.movie-info {
+    grid-area: movieInfo;
+}
+.movie-title {
+    display: flex;
+}
+.movie-name {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 49px;
+
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    margin: 0;
+}
+.movie-rating {
+    width: 60px;
+    height: 60px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    border: 1px solid #ffffff;
+    margin-left: 25px;
+}
+.movie-rating > p {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-top: 15px;
+}
+.movie-genre {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #ffffff;
+
+    mix-blend-mode: normal;
+    opacity: 0.5;
+    margin-top: -6px;
+}
+.movie-red {
+    display: flex;
+    margin-top: 30px;
+}
+.movie-red > p {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #f65261;
+}
+.movie-date {
+    margin-right: 50px;
+}
+.movie-description {
+    width: 698px;
+    height: 292px;
+    margin-top: 30px;
+}
+.movie-description > p {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #ffffff;
+
+    mix-blend-mode: normal;
+    opacity: 0.5;
+}

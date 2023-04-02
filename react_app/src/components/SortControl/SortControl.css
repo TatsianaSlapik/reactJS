@@ -1,0 +1,56 @@
+.sort {
+    display: flex;
+    background: #232323;
+    padding: 18px;
+    margin-left: 215px;
+}
+.sortBy {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.888889px;
+    text-transform: uppercase;
+
+    color: #ffffff;
+
+    mix-blend-mode: normal;
+    opacity: 0.6;
+    margin-right: 30px;
+    height: 20px;
+}
+
+.sortSelect {
+    height: 20px;
+}
+
+.sortSelect {
+    background: #232323;
+    color: #ffffff;
+    text-transform: uppercase;
+    border: none;
+}
+
+.sortSelect :hover {
+    border: none;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.sortSelect:focus-visible {
+    border: none;
+}
+
+.sortSelect > option {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+
+    letter-spacing: 0.888889px;
+    text-transform: uppercase;
+
+    color: #ffffff;
+}

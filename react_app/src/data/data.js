@@ -1,9 +1,9 @@
-import Film1 from "/src/img/film1.png";
-import Film2 from "/src/img/film2.png";
-import Film3 from "/src/img/film4.png";
-import Film4 from "/src/img/film3.png";
-import Film5 from "/src/img/film5.png";
-import Film6 from "/src/img/film6.png";
+import Film1 from "../img/film1.png";
+import Film2 from "../img/film2.png";
+import Film3 from "../img/film4.png";
+import Film4 from "../img/film3.png";
+import Film5 from "../img/film5.png";
+import Film6 from "../img/film6.png";
 
 export const genres = [
   { id: 0, genre: "All" },
