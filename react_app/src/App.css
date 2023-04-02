@@ -10,11 +10,7 @@ p {
 }
 
 .App {
-  margin: 1rem;
   font-family: Arial, Helvetica, sans-serif;
   max-width: 1200px;
   margin: 0 auto;
-  background-color: content-box;
-  
 }
-
