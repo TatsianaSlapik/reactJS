@@ -1,6 +1,7 @@
 .film {
     display: grid;
     width: 323px;
+    background: #232323;
 }
 
 .film:hover {
@@ -12,13 +13,11 @@
 .film-description {
     display: grid;
     grid-template-columns: 1fr 0.5fr;
-    row-gap: 8px;
     column-gap: 24px;
     grid-template-areas:
         "title date"
         "genre genre";
-    margin-top: 13px;
-    height: 50px;
+    margin: 13px 0 10px 0;
 }
 
 .film-title {
@@ -33,6 +32,8 @@
 }
 
 .film-date {
+    grid-area: date;
+
     width: 60px;
     height: 60px;
     line-height: 40px;
@@ -41,10 +42,11 @@
     border: 1px solid #979797;
     border-radius: 4px;
     margin-left: 30px;
-    grid-area: date;
+
     width: 66px;
     height: 26px;
 }
+
 .film-date > p {
     font-family: "Montserrat";
     font-style: normal;
