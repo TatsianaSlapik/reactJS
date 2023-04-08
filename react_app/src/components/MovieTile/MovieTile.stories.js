@@ -1,6 +1,7 @@
 import React from "react";
-import { FILMS_DATE } from "../../data/data.js";
+
 import MovieTile from "./MovieTile.jsx";
+import { FILMS_DATA } from "../../data/data.js";
 
 export default {
   title: "MovieTile",
@@ -8,5 +9,5 @@ export default {
 };
 
 export const MovieTileStories = () => (
-  <MovieTile movie={FILMS_DATE[0]} onClick={() => {}} />
+  <MovieTile movie={FILMS_DATA[0]} onClick={() => {}} />
 );

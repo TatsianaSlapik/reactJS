@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
 import MovieDetails from "./components/MovieDetails/MovieDetails";
 import MovieTile from "./components/MovieTile/MovieTile";
-import { FILMS_DATE } from "./data/data";
+import { FILMS_DATA } from "./data/data";
 
 function App() {
   return (
@@ -14,12 +14,12 @@ function App() {
       <Menu />
 
       <MovieTile
-        movie={FILMS_DATE[0]}
+        movie={FILMS_DATA[0]}
         onClick={() => {
           console.log("Movie");
         }}
       />
-      <MovieDetails movie={FILMS_DATE[0]} />
+      <MovieDetails movie={FILMS_DATA[0]} />
     </div>
   );
 }

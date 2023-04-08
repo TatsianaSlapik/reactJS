@@ -1,10 +1,11 @@
 import React from "react";
-import { FILMS_DATE } from "../../data/data.js";
+
 import MovieDetails from "./MovieDetails.jsx";
+import { FILMS_DATA } from "../../data/data.js";
 
 export default {
   title: "MovieDetails",
   component: MovieDetails,
 };
 
-export const MovieDetailsStories = () => <MovieDetails movie={FILMS_DATE[0]} />;
+export const MovieDetailsStories = () => <MovieDetails movie={FILMS_DATA[0]} />;

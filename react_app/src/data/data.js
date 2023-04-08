@@ -13,7 +13,7 @@ export const genres = [
   { id: 4, genre: "Crime" },
 ];
 
-export const FILMS_DATE = [
+export const FILMS_DATA = [
   {
     id: "1",
     img: Film1,
