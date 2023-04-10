@@ -26,3 +26,19 @@
     height: 40px;
     color: #ffffff;
 }
+.deleteMovie {
+    display: grid;
+    background: #232323;
+    color: #ffffff;
+    padding: 60px;
+    margin: 0 auto;
+}
+.deleteMovie > button {
+    height: 57px;
+    width: 180px;
+    border-radius: 4px;
+    background: #f65261;
+    border: 1px solid #f65261;
+    color: #ffffff;
+    font-size: 20px;
+}

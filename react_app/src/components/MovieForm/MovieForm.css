@@ -6,7 +6,7 @@
     grid-template-areas:
         "title date"
         "url rating"
-        " genre_form runtime"
+        "genre_form runtime"
         "overview overview"
         "btns btns";
     gap: 30px;
@@ -45,10 +45,34 @@
 .overview {
     grid-area: overview;
     display: grid;
-    height: 90px;
+}
+.overview > textarea {
+    height: 197px;
+    background: rgba(50, 50, 50, 0.948044);
+    color: #ffffff;
 }
 .btns {
     grid-area: btns;
+    display: flex;
+    justify-content: flex-end;
+}
+.btns > .submit {
+    height: 57px;
+    width: 180px;
+    border-radius: 4px;
+    background: #f65261;
+    border: 1px solid #f65261;
+    color: #ffffff;
+    font-size: 20px;
+}
+.btns > .reset {
+    height: 57px;
+    width: 180px;
+    border-radius: 4px;
+    background: #232323;
+    color: #f65261;
+    border: 1px solid #f65261;
+    margin-right: 13px;
 }
 .movieForm > div > .label_title,
 .genreLabel {
@@ -71,6 +95,7 @@
     background: rgba(50, 50, 50, 0.948044);
     height: 57px;
     border-radius: 4px;
+    color: #ffffff;
 }
 .genreSelect > option {
     font-family: "Montserrat";

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 import { genres } from "../../data/data";
@@ -30,7 +30,8 @@ const MovieForm = ({ onSubmit, movie }) => {
         <Input
           name={MOVIE_FORM.TITLE}
           title={MOVIE_FORM.TITLE}
-          defaultValue={MOVIE_FORM.DEFAULT_TITLE}
+          value={movie ? movie.name : MOVIE_FORM.DEFAULT_TITLE}
+          onChange={(e) => e.target.value}
         />
       </div>
       <div className='date'>
@@ -39,6 +40,7 @@ const MovieForm = ({ onSubmit, movie }) => {
           title={MOVIE_FORM.RELEASE_DATE}
           defaultValue={MOVIE_FORM.DEFAULT_RELEASE_DATE}
           type='date'
+          onChange={(e) => e.target.value}
         />
       </div>
       <div className='url'>
@@ -46,6 +48,7 @@ const MovieForm = ({ onSubmit, movie }) => {
           name={MOVIE_FORM.MOVIE_URL}
           title={MOVIE_FORM.MOVIE_URL}
           defaultValue={MOVIE_FORM.DEFAULT_MOVIE_URL}
+          onChange={(e) => e.target.value}
         />
       </div>
       <div className='rating'>
@@ -54,6 +57,7 @@ const MovieForm = ({ onSubmit, movie }) => {
           title={MOVIE_FORM.RATING}
           defaultValue={MOVIE_FORM.DEFAULT_RATING}
           type='number'
+          onChange={(e) => e.target.value}
         />
       </div>
       <div className='genre_form'>
@@ -61,7 +65,10 @@ const MovieForm = ({ onSubmit, movie }) => {
           {MOVIE_FORM.GENRE}
         </label>
         <select className='genreSelect' name='genreSelect' onChange={() => {}}>
-          <option value={MOVIE_FORM.DEFAULT_GENRE} selected>
+          <option
+            value={MOVIE_FORM.DEFAULT_GENRE}
+            defaultValue={MOVIE_FORM.DEFAULT_GENRE}
+          >
             {MOVIE_FORM.DEFAULT_GENRE}
           </option>
           {genres.map((genre) => (
@@ -76,18 +83,26 @@ const MovieForm = ({ onSubmit, movie }) => {
           name={MOVIE_FORM.RUNTIME}
           title={MOVIE_FORM.RUNTIME}
           defaultValue={MOVIE_FORM.DEFAULT_RUNTIME}
+          onChange={(e) => e.target.value}
         />
       </div>
       <div className='overview'>
-        <Input
-          name={MOVIE_FORM.OVERVIEW}
-          title={MOVIE_FORM.OVERVIEW}
-          defaultValue={MOVIE_FORM.DEFAULT_OVERVIEW}
-        />
+        <label className='label_title'> {MOVIE_FORM.OVERVIEW}</label>
+        <textarea>
+          {movie ? movie.description : MOVIE_FORM.DEFAULT_OVERVIEW}
+        </textarea>
       </div>
       <div className='btns'>
-        <Button name={MOVIE_FORM.BTN_NAME_RESET} onClick={() => {}} />
-        <Button name={MOVIE_FORM.BTN_NAME_SUBMIT} type='submit' />
+        <Button
+          name={MOVIE_FORM.BTN_NAME_RESET}
+          onClick={() => {}}
+          newStyle='reset'
+        />
+        <Button
+          name={MOVIE_FORM.BTN_NAME_SUBMIT}
+          type='submit'
+          newStyle='submit'
+        />
       </div>
     </form>
   );
