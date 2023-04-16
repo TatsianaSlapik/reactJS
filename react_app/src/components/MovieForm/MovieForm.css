@@ -1,0 +1,112 @@
+.movieForm {
+    display: grid;
+    background: #232323;
+    padding: 60px;
+    grid-template-columns: 1fr 0.5fr;
+    grid-template-areas:
+        "title date"
+        "url rating"
+        "genre_form runtime"
+        "overview overview"
+        "btns btns";
+    gap: 30px;
+    margin: 0 auto;
+}
+.title {
+    grid-area: title;
+    display: grid;
+    height: 90px;
+}
+.date {
+    grid-area: date;
+    display: grid;
+    height: 90px;
+}
+.url {
+    grid-area: url;
+    display: grid;
+    height: 90px;
+}
+.rating {
+    grid-area: rating;
+    display: grid;
+    height: 90px;
+}
+.genre_form {
+    grid-area: genre_form;
+    display: grid;
+    height: 90px;
+}
+.runtime {
+    grid-area: runtime;
+    display: grid;
+    height: 90px;
+}
+.overview {
+    grid-area: overview;
+    display: grid;
+}
+.overview > textarea {
+    height: 197px;
+    background: rgba(50, 50, 50, 0.948044);
+    color: #ffffff;
+}
+.btns {
+    grid-area: btns;
+    display: flex;
+    justify-content: flex-end;
+}
+.btns > .submit {
+    height: 57px;
+    width: 180px;
+    border-radius: 4px;
+    background: #f65261;
+    border: 1px solid #f65261;
+    color: #ffffff;
+    font-size: 20px;
+}
+.btns > .reset {
+    height: 57px;
+    width: 180px;
+    border-radius: 4px;
+    background: #232323;
+    color: #f65261;
+    border: 1px solid #f65261;
+    margin-right: 13px;
+}
+.movieForm > div > .label_title,
+.genreLabel {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+
+    color: #f65261;
+    height: 20px;
+}
+.movieForm > div > input {
+    background: rgba(50, 50, 50, 0.948044);
+    color: #ffffff;
+}
+.genreSelect {
+    background: rgba(50, 50, 50, 0.948044);
+    height: 57px;
+    border-radius: 4px;
+    color: #ffffff;
+}
+.genreSelect > option {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #ffffff;
+
+    mix-blend-mode: normal;
+    opacity: 0.8;
+    height: 57px;
+}
