@@ -9,7 +9,7 @@ import Input from "../Input/Input";
 
 import "./Search.css";
 
-const Search = ({ onSearch }) => {
+const Search = ({ onSearch, search }) => {
   const [value, setValue] = useState("");
 
   return (
@@ -18,7 +18,7 @@ const Search = ({ onSearch }) => {
       <form className='search-var'>
         <Input
           onChange={(e) => setValue(e.target.value)}
-          defaultValue={SEARCH_INPUT_TEXT}
+          value={search ? search : SEARCH_INPUT_TEXT}
         />
         <Button
           type='submit'
