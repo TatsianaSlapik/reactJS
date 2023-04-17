@@ -9,12 +9,13 @@ import MovieDetails from "../MovieDetails/MovieDetails";
 const Header = ({ onSearch, movie, search }) => {
   return (
     <header className='header'>
-      <img src={HeaderImg} alt='header' />
-
       {movie ? (
         <MovieDetails movie={movie} />
       ) : (
-        <Search search={search} onSearch={onSearch} />
+        <>
+          <img src={HeaderImg} alt='header' />
+          <Search search={search} onSearch={onSearch} />
+        </>
       )}
     </header>
   );

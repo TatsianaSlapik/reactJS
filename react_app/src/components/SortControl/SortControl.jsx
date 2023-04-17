@@ -1,7 +1,7 @@
 import "./SortControl.css";
 
 const SORT_BY = "Sort by";
-const TYPE_SORT_NAME = {
+export const TYPE_SORT_NAME = {
   date: "Release Date",
   title: "Title",
 };
@@ -18,7 +18,7 @@ const SortControl = ({ onChange, activeSortControl }) => {
         <option value={TYPE_SORT_NAME.date} selected={isSelected}>
           {TYPE_SORT_NAME.date}
         </option>
-        <option value={TYPE_SORT_NAME.title} selected={isSelected}>
+        <option value={TYPE_SORT_NAME.title} selected={!isSelected}>
           {TYPE_SORT_NAME.title}
         </option>
       </select>
