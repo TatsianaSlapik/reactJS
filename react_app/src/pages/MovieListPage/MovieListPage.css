@@ -1,3 +1,16 @@
+.menu {
+    display: flex;
+    height: 56px;
+    background: #232323;
+    border-bottom: 2px solid #424242;
+}
+.movies {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: #232323;
+    gap: 51px;
+    padding: 59px;
+}
 .header {
     position: relative;
     display: flex;

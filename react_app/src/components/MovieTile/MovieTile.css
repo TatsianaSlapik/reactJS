@@ -3,7 +3,10 @@
     width: 323px;
     background: #232323;
 }
-
+.film-img {
+    width: 323.41px;
+    height: 486px;
+}
 .film:hover {
     cursor: pointer;
     border: 2px solid #424242;
@@ -35,7 +38,7 @@
     grid-area: date;
 
     width: 60px;
-    height: 60px;
+
     line-height: 40px;
 
     text-align: center;

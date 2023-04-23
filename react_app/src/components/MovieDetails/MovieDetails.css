@@ -1,3 +1,35 @@
+.movieDetails {
+    display: grid;
+    background: #232323;
+}
+.movie-header {
+    display: flex;
+    justify-content: space-between;
+}
+.movie-header > p {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #f65261;
+}
+.movie-btn {
+    width: 40px;
+    height: 40px;
+    background: #232323;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+}
+.movie-btn > img:hover {
+    cursor: pointer;
+}
+.movie-btn > img {
+    width: 28px;
+    height: 29px;
+}
 .movie {
     display: grid;
     grid-template-areas: "movieImg movieInfo";
@@ -8,6 +40,8 @@
 }
 .movie-img {
     grid-area: movieImg;
+    width: 323.41px;
+    height: 486px;
 }
 
 .movie-info {

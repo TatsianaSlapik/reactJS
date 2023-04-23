@@ -9,8 +9,8 @@ import Input from "../Input/Input";
 
 import "./Search.css";
 
-const Search = ({ onSearch }) => {
-  const [value, setValue] = useState("");
+const Search = ({ onSearch, search }) => {
+  const [value, setValue] = useState(search);
 
   return (
     <div className='search'>

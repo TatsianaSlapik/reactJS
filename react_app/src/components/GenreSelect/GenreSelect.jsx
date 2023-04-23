@@ -3,8 +3,8 @@ import Button from "../Button/Button";
 
 import "./GenreSelect.css";
 
-const GenreSelect = ({ genres, onSelect }) => {
-  const [nameGenreSelected, setNameGenreSelected] = useState("");
+const GenreSelect = ({ genres, activeGenre, onGenreSelect }) => {
+  const [nameGenreSelected, setNameGenreSelected] = useState(activeGenre);
 
   return (
     <div className='genre'>
@@ -15,7 +15,7 @@ const GenreSelect = ({ genres, onSelect }) => {
             newStyle={nameGenreSelected === genre.genre ? "active" : " "}
             onClick={() => {
               setNameGenreSelected(genre.genre);
-              onSelect(genre.genre);
+              onGenreSelect(genre.genre);
             }}
             name={genre.genre}
           />
