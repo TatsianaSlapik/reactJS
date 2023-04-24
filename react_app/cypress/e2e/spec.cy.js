@@ -23,21 +23,27 @@ describe("My First Test", () => {
     cy.get(".film > img");
     cy.get(".film-description ").find(".film-genre");
 
-    cy.contains("Fifty Shades Freed").click();
+    cy.contains("Pulp Fiction").click();
+    cy.visit("http://localhost:3000/1");
     cy.get(".movieDetails");
+
     cy.get(".movie-header>button").click();
     cy.get(".search");
   });
 
   it("open MovieDetails", () => {
     cy.visit("http://localhost:3000");
-    cy.contains("Fifty Shades Freed" || "Pulp Fiction").click();
+    cy.contains("Pulp Fiction").click();
+
+    cy.visit("http://localhost:3000/1");
     cy.get(".movieDetails");
   });
 
   it("open MovieDetails and return to Search", () => {
     cy.visit("http://localhost:3000");
-    cy.contains("Fifty Shades Freed" || "Pulp Fiction").click();
+    cy.contains("Pulp Fiction").click();
+
+    cy.visit("http://localhost:3000/1");
     cy.get(".movieDetails");
     cy.get(".movie-header>button").click();
     cy.get(".search");
@@ -64,10 +70,6 @@ describe("My First Test", () => {
   });
 
   it("get movies by title", () => {
-    cy.request(
-      "GET",
-      `http://localhost:4000/movies?searchBy=title&filter=&search=`
-    );
     cy.visit("http://localhost:3000");
     cy.get(".film-description ").find(".film-date");
   });
@@ -75,6 +77,47 @@ describe("My First Test", () => {
   it("get movies by search", () => {
     cy.request("GET", `http://localhost:4000/movies?searchBy=&filter=&search=`);
     cy.visit("http://localhost:3000");
+    cy.get(".film-description ").find(".film-date");
+  });
+
+  it("change genre", () => {
+    cy.visit("http://localhost:3000");
+
+    cy.contains("Comedy").click();
+    cy.get("ul button:first").should("not.have.class", "active");
+    cy.request(
+      "GET",
+      `http://localhost:4000/movies?searchBy=&filter=Comedy&search=`
+    );
+    cy.visit("http://localhost:3000/?genre=Comedy");
+    cy.get(".film-description ").find(".film-date");
+  });
+
+  it("change sortBy", () => {
+    cy.visit("http://localhost:3000");
+
+    cy.get(".sort > label").should("have.class", "sortBy");
+
+    cy.get("select").select("Title");
+    cy.request(
+      "GET",
+      `http://localhost:4000/movies?searchBy=title&filter=&search=`
+    );
+    cy.visit("http://localhost:3000/?sortBy=title");
+    cy.get(".film-description ").find(".film-date");
+  });
+
+  it("change search", () => {
+    cy.visit("http://localhost:3000");
+    cy.get("input").type("movie");
+    cy.contains("SEARCH").click();
+
+    cy.request(
+      "GET",
+      `http://localhost:4000/movies?searchBy=&filter=&search=movie`
+    );
+    cy.visit("http://localhost:3000/?query=movie");
+
     cy.get(".film-description ").find(".film-date");
   });
 });
