@@ -9,8 +9,8 @@ import Input from "../Input/Input";
 
 import "./Search.css";
 
-const Search = ({ onSearch, search }) => {
-  const [value, setValue] = useState(search);
+const Search = ({ onSearch }) => {
+  const [value, setValue] = useState("");
 
   return (
     <div className='search'>
@@ -18,12 +18,16 @@ const Search = ({ onSearch, search }) => {
       <form className='search-var'>
         <Input
           onChange={(e) => setValue(e.target.value)}
-          defaultValue={SEARCH_INPUT_TEXT}
+          defaultValue={value}
+          placeholder={SEARCH_INPUT_TEXT}
         />
         <Button
           type='submit'
           name={SEARCH_BTN_NAME}
-          onClick={() => onSearch(value)}
+          onClick={(e) => {
+            e.preventDefault();
+            onSearch(value);
+          }}
         />
       </form>
     </div>

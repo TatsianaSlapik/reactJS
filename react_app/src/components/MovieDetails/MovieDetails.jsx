@@ -22,9 +22,9 @@ const MovieDetails = ({ movie, onClick }) => {
                 <p>{movie.vote_average}</p>
               </div>
             </div>
-            <p className='movie-genre'>{movie.genres.join("&")}</p>
+            <p className='movie-genre'>{movie?.genres?.join("&")}</p>
             <div className='movie-red'>
-              <p className='movie-date'>{movie.release_date.slice(0, 4)}</p>
+              <p className='movie-date'>{movie?.release_date?.slice(0, 4)}</p>
               <p className='movie-time'>{movie.runtime}</p>
             </div>
             <div className='movie-description'>
