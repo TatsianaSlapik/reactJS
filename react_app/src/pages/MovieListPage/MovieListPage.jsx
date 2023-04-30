@@ -13,14 +13,33 @@ import { getMovie } from "../../api/api";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 const MovieListPage = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [movieList, setMovieList] = useState(FILMS_DATA);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [params, setParams] = useState({
+    query: "",
+    sortBy: "title",
+    genre: "All",
+  });
 
-  const searchQuery = searchParams.get("query");
-  const sortCriterion = searchParams.get("sortBy");
-  const activeGenre = searchParams.get("genre");
+  const [searchParams, setSearchParams] = useSearchParams({
+    query: params.query,
+    sortBy: params.sortBy,
+    genre: params.genre,
+  });
+
+  const searchQuery =
+    searchParams.get("query") != null
+      ? searchParams.get("query")
+      : params.query;
+  const sortCriterion =
+    searchParams.get("sortBy") != null
+      ? searchParams.get("sortBy")
+      : params.sortBy;
+  const activeGenre =
+    searchParams.get("genre") != null
+      ? searchParams.get("genre")
+      : params.genre;
 
   useEffect(() => {
     getMovie(sortCriterion, activeGenre, searchQuery)
@@ -37,22 +56,30 @@ const MovieListPage = () => {
   }, [sortCriterion, activeGenre, searchQuery]);
 
   const handleSearch = (value) => {
+    setParams({ query: value, ...params });
     setSearchParams({ query: value });
   };
 
   const handleChangeSortControl = (event) => {
+    setParams({ ...params, sortBy: event.target.value });
     setSearchParams({ sortBy: event.target.value });
   };
   const handleChangeGenreSelect = (par) => {
+    setParams({ ...params, genre: par });
     setSearchParams({ genre: par });
   };
+
+  console.log(activeGenre);
+  console.log(sortCriterion);
+
+  console.log(searchQuery);
 
   return (
     <>
       <header className='header'>
         <>
           <img src={HeaderImg} alt='header' />
-          <Search searchParams={searchParams} onSearch={handleSearch} />
+          <Search onSearch={handleSearch} />
         </>
       </header>
       <div className='menu'>
@@ -71,7 +98,7 @@ const MovieListPage = () => {
       <div className='movies'>
         {movieList.map((movie) => (
           <MovieTile
-            key={movie.id}
+            key={movie.id + movie.title}
             movie={movie}
             onClick={() => {
               navigate(`${"/" + movie.id}`);
