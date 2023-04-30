@@ -4,6 +4,7 @@ import "./App.css";
 import MovieListPage from "./pages/MovieListPage/MovieListPage";
 
 import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
+import AddMovieForm from "./components/AddMovieForm/AddMovieForm";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path='/' element={<MovieListPage />}></Route>
         <Route path=':movieId' element={<MovieDetailsPage />}></Route>
+        <Route path='/new' element={<AddMovieForm />}></Route>
       </Routes>
     </div>
   );

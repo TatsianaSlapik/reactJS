@@ -9,7 +9,7 @@ import MovieTile from "../../components/MovieTile/MovieTile";
 import Search from "../../components/Search/Search";
 
 import HeaderImg from "../../img/header.png";
-import { getMovie } from "../../api/api";
+import { getMovies } from "../../api/api";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 const MovieListPage = () => {
@@ -42,7 +42,7 @@ const MovieListPage = () => {
       : params.genre;
 
   useEffect(() => {
-    getMovie(sortCriterion, activeGenre, searchQuery)
+    getMovies(sortCriterion, activeGenre, searchQuery)
       .then(function (response) {
         setMovieList(
           response.data.data.length > 0 ? response.data.data : FILMS_DATA
@@ -68,11 +68,6 @@ const MovieListPage = () => {
     setParams({ ...params, genre: par });
     setSearchParams({ genre: par });
   };
-
-  console.log(activeGenre);
-  console.log(sortCriterion);
-
-  console.log(searchQuery);
 
   return (
     <>
