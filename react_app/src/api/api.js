@@ -14,7 +14,7 @@ export async function getMovie(sortCriterion, genderFilter, searchValue) {
     const genderFilterValue = genderFilter === "All" ? "" : genderFilter;
 
     return await axios.get(
-      `${endpoint}?searchBy=${searchByValue}&filter=${genderFilterValue}&search=${searchValue}`
+      `${endpoint}?searchBy=${searchByValue}&search=${searchValue}&filter=${genderFilterValue}`
     );
   } catch (error) {
     console.error(error);
