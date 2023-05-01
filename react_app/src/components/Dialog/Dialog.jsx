@@ -12,8 +12,8 @@ const Dialog = ({ title, onClick, content }) => {
         <Button name='x' onClick={onClick} />
       </div>
       {content && (
-        <div className='content'>
-          <Portal>{content}</Portal>
+        <div>
+          <Portal className='content'>{content}</Portal>
         </div>
       )}
     </div>

@@ -10,7 +10,8 @@ import Search from "../../components/Search/Search";
 
 import HeaderImg from "../../img/header.png";
 import { getMovies } from "../../api/api";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Outlet, useNavigate, useSearchParams } from "react-router-dom";
+import Button from "../../components/Button/Button";
 
 const MovieListPage = () => {
   const navigate = useNavigate();
@@ -68,13 +69,19 @@ const MovieListPage = () => {
     setParams({ ...params, genre: par });
     setSearchParams({ genre: par });
   };
+  const handleClick = () => {
+    navigate("new");
+  };
 
   return (
     <>
+      <div className='dialogOpen'>
+        <Outlet />
+      </div>
       <header className='header'>
         <>
           <img src={HeaderImg} alt='header' />
-          <Search onSearch={handleSearch} />
+          <Search onSearch={handleSearch} onClick={handleClick} />
         </>
       </header>
       <div className='menu'>
@@ -90,6 +97,7 @@ const MovieListPage = () => {
           }}
         />
       </div>
+
       <div className='movies'>
         {movieList.map((movie) => (
           <MovieTile

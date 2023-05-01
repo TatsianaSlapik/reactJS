@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import Input from "../Input/Input";
+import React from "react";
+
 import Button from "../Button/Button";
 import { genres } from "../../data/data";
 import "./MovieForm.css";
+import { useForm } from "react-hook-form";
 
 const MOVIE_FORM = {
   TITLE: "TITLE",
@@ -24,55 +25,74 @@ const MOVIE_FORM = {
 };
 
 const MovieForm = ({ onSubmit, movie }) => {
+  const { register, handleSubmit, reset } = useForm({
+    defaultValues: {
+      ...movie,
+    },
+  });
+
+  const handleReset = () => {
+    reset({
+      defaultValues: {
+        ...movie,
+      },
+    });
+  };
+
   return (
-    <form className='movieForm' onSubmit={onSubmit}>
+    <form className='movieForm' onSubmit={handleSubmit(onSubmit)}>
       <div className='title'>
-        <Input
-          name={MOVIE_FORM.TITLE}
-          title={MOVIE_FORM.TITLE}
+        <label className='label_title'> {MOVIE_FORM.TITLE}</label>
+        <input
           placeholder={MOVIE_FORM.DEFAULT_TITLE}
-          value={movie ? movie.title : ""}
-          onChange={(e) => e.target.value}
+          {...register("title", {
+            required: "This field is required",
+          })}
         />
       </div>
       <div className='date'>
-        <Input
-          name={MOVIE_FORM.RELEASE_DATE}
-          title={MOVIE_FORM.RELEASE_DATE}
+        <label className='label_title'> {MOVIE_FORM.RELEASE_DATE}</label>
+        <input
           placeholder={MOVIE_FORM.DEFAULT_RELEASE_DATE}
-          value={movie ? movie.release_date : ""}
           type='date'
-          onChange={(e) => e.target.value}
+          {...register("release_date", {
+            required: "This field is required",
+          })}
         />
       </div>
       <div className='url'>
-        <Input
-          name={MOVIE_FORM.MOVIE_URL}
-          title={MOVIE_FORM.MOVIE_URL}
+        <label className='label_title'> {MOVIE_FORM.MOVIE_URL}</label>
+
+        <input
           placeholder={MOVIE_FORM.DEFAULT_MOVIE_URL}
-          value={movie ? movie.poster_path : ""}
-          onChange={(e) => e.target.value}
+          {...register("poster_path", {
+            required: "This field is required",
+          })}
         />
       </div>
       <div className='rating'>
-        <Input
-          name={MOVIE_FORM.RATING}
-          title={MOVIE_FORM.RATING}
+        <label className='label_title'> {MOVIE_FORM.RATING}</label>
+
+        <input
           placeholder={MOVIE_FORM.DEFAULT_RATING}
-          value={movie ? movie.vote_average : ""}
           type='number'
-          onChange={(e) => e.target.value}
+          {...register("vote_average", {
+            required: "This field is required",
+          })}
         />
       </div>
       <div className='genre_form'>
         <label className='genreLabel' htmlFor='genreSelect'>
           {MOVIE_FORM.GENRE}
         </label>
-        <select className='genreSelect' name='genreSelect' onChange={() => {}}>
-          <option
-            value={MOVIE_FORM.DEFAULT_GENRE}
-            defaultValue={MOVIE_FORM.DEFAULT_GENRE}
-          >
+        <select
+          className='genreSelect'
+          name='genreSelect'
+          {...register("genres", {
+            required: "This field is required",
+          })}
+        >
+          <option value={MOVIE_FORM.DEFAULT_GENRE}>
             {MOVIE_FORM.DEFAULT_GENRE}
           </option>
           {genres.map((genre) => (
@@ -83,25 +103,28 @@ const MovieForm = ({ onSubmit, movie }) => {
         </select>
       </div>
       <div className='runtime'>
-        <Input
-          name={MOVIE_FORM.RUNTIME}
-          title={MOVIE_FORM.RUNTIME}
+        <label className='label_title'> {MOVIE_FORM.RUNTIME}</label>
+        <input
           placeholder={MOVIE_FORM.DEFAULT_RUNTIME}
-          value={movie ? movie.runtime : ""}
-          onChange={(e) => e.target.value}
+          type='number'
+          {...register("runtime", {
+            required: "This field is required",
+          })}
         />
       </div>
       <div className='overview'>
         <label className='label_title'> {MOVIE_FORM.OVERVIEW}</label>
         <textarea
           placeholder={MOVIE_FORM.DEFAULT_OVERVIEW}
-          value={movie ? movie.overview : ""}
+          {...register("overview", {
+            required: "This field is required",
+          })}
         />
       </div>
       <div className='btns'>
         <Button
           name={MOVIE_FORM.BTN_NAME_RESET}
-          onClick={() => {}}
+          onClick={handleReset}
           newStyle='reset'
         />
         <Button

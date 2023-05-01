@@ -10,19 +10,12 @@ import Input from "../Input/Input";
 import "./Search.css";
 import { useNavigate } from "react-router-dom";
 
-const Search = ({ onSearch }) => {
+const Search = ({ onSearch, onClick }) => {
   const [value, setValue] = useState("");
-  const navigate = useNavigate();
-
   return (
     <div>
-      <Button
-        name='+ add movie'
-        onClick={() => {
-          navigate("/new");
-        }}
-        newStyle='addMovie'
-      ></Button>
+      <Button name='+ add movie' onClick={onClick} newStyle='addMovie'></Button>
+
       <div className='search'>
         <h1>{SEARCH_TITLE}</h1>
         <form className='search-var'>

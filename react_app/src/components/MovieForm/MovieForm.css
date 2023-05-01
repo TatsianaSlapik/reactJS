@@ -11,6 +11,10 @@
         "btns btns";
     gap: 30px;
     margin: 0 auto;
+    width: 1080px;
+}
+.movieForm > p {
+    color: #ffffff;
 }
 .title {
     grid-area: title;

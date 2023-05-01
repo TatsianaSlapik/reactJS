@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 import ContextImg from "../../img/context.png";
 import "./ContextMenu.css";
 
 const ContextMenu = (movieId) => {
-  console.log(movieId);
   return (
     <div className='dropdown'>
       <button className='dropbtn'>

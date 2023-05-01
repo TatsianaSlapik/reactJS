@@ -20,10 +20,11 @@ const EditMovieForm = () => {
       });
   }, [movieId]);
 
-  const hangleSubmit = (formValue) => {
+  const handleSubmit = (formValue) => {
+    navigate("/");
     updateMovie(formValue)
       .then(function (response) {
-        console.log(response);
+        console.log("update movie");
       })
       .catch(() => {
         console.log("something wrong");
@@ -31,15 +32,13 @@ const EditMovieForm = () => {
   };
 
   return (
-    <div>
-      <Dialog
-        title={"EDIT MOVIE"}
-        onClick={() => {
-          navigate("/");
-        }}
-        content={<MovieForm movie={movie} onSubmit={hangleSubmit} />}
-      />
-    </div>
+    <Dialog
+      title={"EDIT MOVIE"}
+      onClick={() => {
+        navigate("/");
+      }}
+      content={<MovieForm movie={movie} onSubmit={handleSubmit} />}
+    />
   );
 };
 export default EditMovieForm;

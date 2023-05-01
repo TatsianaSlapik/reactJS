@@ -13,9 +13,16 @@ export async function getMovies(sortCriterion, genderFilter, searchValue) {
         : "";
     const genderFilterValue = genderFilter === "All" ? "" : genderFilter;
 
-    return await axios.get(
-      `${endpoint}?searchBy=${searchByValue}&search=${searchValue}&filter=${genderFilterValue}`
-    );
+    return await axios({
+      method: "get",
+      url: `${endpoint}`,
+      params: {
+        searchBy: `${searchByValue}`,
+        search: `${searchValue}`,
+        filter: `${genderFilterValue}`,
+        limit: 15,
+      },
+    });
   } catch (error) {
     console.error(error);
   }
@@ -34,15 +41,15 @@ export async function createMovie(movie) {
     return await axios.post(`${endpoint}`, {
       title: movie.title,
       tagline: movie.tagline,
-      vote_average: movie.vote_average,
+      vote_average: Number(movie.vote_average),
       vote_count: movie.vote_count,
-      release_date: movie.vote_count,
+      release_date: String(movie.release_date).toISOString(),
       poster_path: movie.poster_path,
       overview: movie.overview,
       budget: movie.budget,
       revenue: movie.revenue,
-      runtime: movie.runtime,
-      genres: movie.genres,
+      runtime: Number(movie.runtime),
+      genres: [movie.genres],
     });
   } catch (error) {
     console.error(error);
@@ -51,17 +58,18 @@ export async function createMovie(movie) {
 export async function updateMovie(movie) {
   try {
     return await axios.put(`${endpoint}`, {
+      id: movie.id,
       title: movie.title,
       tagline: movie.tagline,
-      vote_average: movie.vote_average,
+      vote_average: Number(movie.vote_average),
       vote_count: movie.vote_count,
-      release_date: movie.vote_count,
+      release_date: movie.release_date,
       poster_path: movie.poster_path,
       overview: movie.overview,
       budget: movie.budget,
       revenue: movie.revenue,
       runtime: movie.runtime,
-      genres: movie.genres,
+      genres: [movie.genres],
     });
   } catch (error) {
     console.error(error);

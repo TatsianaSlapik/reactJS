@@ -11,9 +11,10 @@ function App() {
     <div className='App'>
       <Routes>
         <Route path='/' element={<MovieListPage />}></Route>
+        <Route path='new' element={<AddMovieForm />} />
+
         <Route path=':movieId' element={<MovieDetailsPage />}></Route>
         <Route path=':movieId/edit' element={<EditMovieForm />}></Route>
-        <Route path='/new' element={<AddMovieForm />}></Route>
       </Routes>
     </div>
   );
