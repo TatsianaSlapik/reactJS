@@ -11,7 +11,6 @@
     "focus-trap-react": "^10.1.1",
     "formik": "^2.2.9",
     "react": "^18.2.0",
-    "react-context-menu-hooks": "^0.4.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-portal": "^4.2.2",

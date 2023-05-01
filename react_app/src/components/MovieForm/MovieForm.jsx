@@ -30,7 +30,8 @@ const MovieForm = ({ onSubmit, movie }) => {
         <Input
           name={MOVIE_FORM.TITLE}
           title={MOVIE_FORM.TITLE}
-          value={movie ? movie.name : MOVIE_FORM.DEFAULT_TITLE}
+          placeholder={MOVIE_FORM.DEFAULT_TITLE}
+          value={movie ? movie.title : ""}
           onChange={(e) => e.target.value}
         />
       </div>
@@ -38,7 +39,8 @@ const MovieForm = ({ onSubmit, movie }) => {
         <Input
           name={MOVIE_FORM.RELEASE_DATE}
           title={MOVIE_FORM.RELEASE_DATE}
-          defaultValue={MOVIE_FORM.DEFAULT_RELEASE_DATE}
+          placeholder={MOVIE_FORM.DEFAULT_RELEASE_DATE}
+          value={movie ? movie.release_date : ""}
           type='date'
           onChange={(e) => e.target.value}
         />
@@ -47,7 +49,8 @@ const MovieForm = ({ onSubmit, movie }) => {
         <Input
           name={MOVIE_FORM.MOVIE_URL}
           title={MOVIE_FORM.MOVIE_URL}
-          defaultValue={MOVIE_FORM.DEFAULT_MOVIE_URL}
+          placeholder={MOVIE_FORM.DEFAULT_MOVIE_URL}
+          value={movie ? movie.poster_path : ""}
           onChange={(e) => e.target.value}
         />
       </div>
@@ -55,7 +58,8 @@ const MovieForm = ({ onSubmit, movie }) => {
         <Input
           name={MOVIE_FORM.RATING}
           title={MOVIE_FORM.RATING}
-          defaultValue={MOVIE_FORM.DEFAULT_RATING}
+          placeholder={MOVIE_FORM.DEFAULT_RATING}
+          value={movie ? movie.vote_average : ""}
           type='number'
           onChange={(e) => e.target.value}
         />
@@ -82,15 +86,17 @@ const MovieForm = ({ onSubmit, movie }) => {
         <Input
           name={MOVIE_FORM.RUNTIME}
           title={MOVIE_FORM.RUNTIME}
-          defaultValue={MOVIE_FORM.DEFAULT_RUNTIME}
+          placeholder={MOVIE_FORM.DEFAULT_RUNTIME}
+          value={movie ? movie.runtime : ""}
           onChange={(e) => e.target.value}
         />
       </div>
       <div className='overview'>
         <label className='label_title'> {MOVIE_FORM.OVERVIEW}</label>
-        <textarea>
-          {movie ? movie.description : MOVIE_FORM.DEFAULT_OVERVIEW}
-        </textarea>
+        <textarea
+          placeholder={MOVIE_FORM.DEFAULT_OVERVIEW}
+          value={movie ? movie.overview : ""}
+        />
       </div>
       <div className='btns'>
         <Button

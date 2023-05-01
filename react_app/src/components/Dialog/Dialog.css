@@ -5,6 +5,7 @@
     height: 80px;
     display: flex;
     justify-content: space-between;
+    padding: 10px;
 }
 .dialog_header > h2 {
     font-family: "Montserrat";
