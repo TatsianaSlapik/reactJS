@@ -8,7 +8,6 @@ import Button from "../Button/Button";
 import Input from "../Input/Input";
 
 import "./Search.css";
-import { useNavigate } from "react-router-dom";
 
 const Search = ({ onSearch, onClick }) => {
   const [value, setValue] = useState("");
