@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
+import { Outlet, useNavigate, useSearchParams } from "react-router-dom";
+import { getMovies } from "../../api/api";
 
 import { FILMS_DATA, genres } from "../../data/data";
 import GenreSelect from "../../components/GenreSelect/GenreSelect";
 import SortControl from "../../components/SortControl/SortControl";
-
-import "./MovieListPage.css";
 import MovieTile from "../../components/MovieTile/MovieTile";
 import Search from "../../components/Search/Search";
 
+import "./MovieListPage.css";
 import HeaderImg from "../../img/header.png";
-import { getMovies } from "../../api/api";
-import { Outlet, useNavigate, useSearchParams } from "react-router-dom";
-import Button from "../../components/Button/Button";
 
 const MovieListPage = () => {
   const navigate = useNavigate();
@@ -29,18 +27,9 @@ const MovieListPage = () => {
     genre: params.genre,
   });
 
-  const searchQuery =
-    searchParams.get("query") != null
-      ? searchParams.get("query")
-      : params.query;
-  const sortCriterion =
-    searchParams.get("sortBy") != null
-      ? searchParams.get("sortBy")
-      : params.sortBy;
-  const activeGenre =
-    searchParams.get("genre") != null
-      ? searchParams.get("genre")
-      : params.genre;
+  const searchQuery = searchParams.get("query") ?? params.query;
+  const sortCriterion = searchParams.get("sortBy") ?? params.sortBy;
+  const activeGenre = searchParams.get("genre") ?? params.genre;
 
   useEffect(() => {
     getMovies(sortCriterion, activeGenre, searchQuery)

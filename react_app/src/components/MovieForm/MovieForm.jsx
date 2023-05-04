@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Button from "../Button/Button";
-import { genres } from "../../data/data";
+import { genres as genresDef } from "../../data/data";
 import "./MovieForm.css";
 import { useForm } from "react-hook-form";
 
@@ -25,18 +25,14 @@ const MOVIE_FORM = {
 };
 
 const MovieForm = ({ onSubmit, movie }) => {
-  const { register, handleSubmit, reset } = useForm({
-    defaultValues: {
-      ...movie,
-    },
-  });
+  const { register, handleSubmit, reset } = useForm();
+
+  useEffect(() => {
+    movie && reset(movie);
+  }, [movie, reset]);
 
   const handleReset = () => {
-    reset({
-      defaultValues: {
-        ...movie,
-      },
-    });
+    reset(movie);
   };
 
   return (
@@ -76,6 +72,7 @@ const MovieForm = ({ onSubmit, movie }) => {
         <input
           placeholder={MOVIE_FORM.DEFAULT_RATING}
           type='number'
+          step='any'
           {...register("vote_average", {
             required: "This field is required",
           })}
@@ -92,10 +89,13 @@ const MovieForm = ({ onSubmit, movie }) => {
             required: "This field is required",
           })}
         >
-          <option value={MOVIE_FORM.DEFAULT_GENRE}>
-            {MOVIE_FORM.DEFAULT_GENRE}
-          </option>
-          {genres.map((genre) => (
+          {movie &&
+            movie?.genres.map((genre, ind) => (
+              <option key={ind} value={genre}>
+                {genre}
+              </option>
+            ))}
+          {genresDef.map((genre) => (
             <option key={genre.id} value={genre.genre}>
               {genre.genre}
             </option>
@@ -107,6 +107,7 @@ const MovieForm = ({ onSubmit, movie }) => {
         <input
           placeholder={MOVIE_FORM.DEFAULT_RUNTIME}
           type='number'
+          step='any'
           {...register("runtime", {
             required: "This field is required",
           })}

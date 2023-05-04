@@ -17,7 +17,7 @@ export const initialMovieState = {
   budget: 0,
   revenue: 0,
   runtime: 0,
-  genres: "",
+  genres: [],
   id: uuidv4(),
 };
 

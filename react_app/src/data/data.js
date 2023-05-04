@@ -6,11 +6,11 @@ import Film5 from "../img/film5.png";
 import Film6 from "../img/film6.png";
 
 export const genres = [
-  { id: 0, genre: "All" },
-  { id: 1, genre: "Documentary" },
-  { id: 2, genre: "Comedy" },
-  { id: 3, genre: "Horror" },
-  { id: 4, genre: "Crime" },
+  { id: 30, genre: "All" },
+  { id: 31, genre: "Documentary" },
+  { id: 32, genre: "Comedy" },
+  { id: 33, genre: "Horror" },
+  { id: 34, genre: "Crime" },
 ];
 
 export const FILMS_DATA = [

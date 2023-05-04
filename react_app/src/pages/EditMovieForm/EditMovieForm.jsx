@@ -8,7 +8,7 @@ import { getMovieById, updateMovie } from "../../api/api";
 const EditMovieForm = () => {
   const navigate = useNavigate();
   const { movieId } = useParams();
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     getMovieById(movieId)
@@ -27,7 +27,9 @@ const EditMovieForm = () => {
         console.log("update movie");
       })
       .catch(() => {
-        console.log("something wrong");
+        if (!movie) {
+          return;
+        }
       });
   };
 
