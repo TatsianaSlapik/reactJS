@@ -1,29 +1,38 @@
 import { useEffect, useState } from "react";
+import { Outlet, useNavigate, useSearchParams } from "react-router-dom";
+import { getMovies } from "../../api/api";
 
 import { FILMS_DATA, genres } from "../../data/data";
 import GenreSelect from "../../components/GenreSelect/GenreSelect";
 import SortControl from "../../components/SortControl/SortControl";
-
-import "./MovieListPage.css";
 import MovieTile from "../../components/MovieTile/MovieTile";
 import Search from "../../components/Search/Search";
 
+import "./MovieListPage.css";
 import HeaderImg from "../../img/header.png";
-import { getMovie } from "../../api/api";
-import { useNavigate, useSearchParams } from "react-router-dom";
 
 const MovieListPage = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [movieList, setMovieList] = useState(FILMS_DATA);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [params, setParams] = useState({
+    query: "",
+    sortBy: "title",
+    genre: "All",
+  });
 
-  const searchQuery = searchParams.get("query");
-  const sortCriterion = searchParams.get("sortBy");
-  const activeGenre = searchParams.get("genre");
+  const [searchParams, setSearchParams] = useSearchParams({
+    query: params.query,
+    sortBy: params.sortBy,
+    genre: params.genre,
+  });
+
+  const searchQuery = searchParams.get("query") ?? params.query;
+  const sortCriterion = searchParams.get("sortBy") ?? params.sortBy;
+  const activeGenre = searchParams.get("genre") ?? params.genre;
 
   useEffect(() => {
-    getMovie(sortCriterion, activeGenre, searchQuery)
+    getMovies(sortCriterion, activeGenre, searchQuery)
       .then(function (response) {
         setMovieList(
           response.data.data.length > 0 ? response.data.data : FILMS_DATA
@@ -37,22 +46,31 @@ const MovieListPage = () => {
   }, [sortCriterion, activeGenre, searchQuery]);
 
   const handleSearch = (value) => {
+    setParams({ query: value, ...params });
     setSearchParams({ query: value });
   };
 
   const handleChangeSortControl = (event) => {
+    setParams({ ...params, sortBy: event.target.value });
     setSearchParams({ sortBy: event.target.value });
   };
   const handleChangeGenreSelect = (par) => {
+    setParams({ ...params, genre: par });
     setSearchParams({ genre: par });
+  };
+  const handleClick = () => {
+    navigate("new");
   };
 
   return (
     <>
+      <div className='dialogOpen'>
+        <Outlet />
+      </div>
       <header className='header'>
         <>
           <img src={HeaderImg} alt='header' />
-          <Search searchParams={searchParams} onSearch={handleSearch} />
+          <Search onSearch={handleSearch} onClick={handleClick} />
         </>
       </header>
       <div className='menu'>
@@ -68,10 +86,11 @@ const MovieListPage = () => {
           }}
         />
       </div>
+
       <div className='movies'>
         {movieList.map((movie) => (
           <MovieTile
-            key={movie.id}
+            key={movie.id + movie.title}
             movie={movie}
             onClick={() => {
               navigate(`${"/" + movie.id}`);

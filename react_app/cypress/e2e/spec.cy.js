@@ -22,13 +22,6 @@ describe("My First Test", () => {
     cy.visit("http://localhost:3000");
     cy.get(".film > img");
     cy.get(".film-description ").find(".film-genre");
-
-    cy.contains("Pulp Fiction").click();
-    cy.visit("http://localhost:3000/1");
-    cy.get(".movieDetails");
-
-    cy.get(".movie-header>button").click();
-    cy.get(".search");
   });
 
   it("open MovieDetails", () => {
@@ -119,5 +112,21 @@ describe("My First Test", () => {
     cy.visit("http://localhost:3000/?query=movie");
 
     cy.get(".film-description ").find(".film-date");
+  });
+
+  it("add movie", () => {
+    cy.visit("http://localhost:3000");
+
+    cy.contains("+ add movie").click();
+
+    cy.visit("http://localhost:3000/new");
+
+    cy.contains("SUBMIT").click();
+  });
+
+  it("edit movie", () => {
+    cy.visit("http://localhost:3000/1/edit");
+
+    cy.contains("SUBMIT").click();
   });
 });

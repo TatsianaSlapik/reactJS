@@ -12,6 +12,11 @@
     border: 2px solid #424242;
     border-radius: 4px;
 }
+.film-menu {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 256px;
+}
 
 .film-description {
     display: grid;
