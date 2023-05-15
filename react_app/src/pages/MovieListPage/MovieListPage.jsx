@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate, useSearchParams } from "react-router-dom";
 import { getMovies } from "../../api/api";
 
@@ -63,7 +63,7 @@ const MovieListPage = () => {
   };
 
   return (
-    <>
+    <div className='moveListPage'>
       <div className='dialogOpen'>
         <Outlet />
       </div>
@@ -86,7 +86,6 @@ const MovieListPage = () => {
           }}
         />
       </div>
-
       <div className='movies'>
         {movieList.map((movie) => (
           <MovieTile
@@ -98,7 +97,7 @@ const MovieListPage = () => {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 export default MovieListPage;

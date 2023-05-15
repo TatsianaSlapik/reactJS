@@ -1,3 +1,4 @@
+import React from "react";
 import "./SortControl.css";
 
 const SORT_BY = "Sort by";

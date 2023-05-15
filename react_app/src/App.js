@@ -1,3 +1,4 @@
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
@@ -8,7 +9,7 @@ import EditMovieForm from "./pages/EditMovieForm/EditMovieForm";
 
 function App() {
   return (
-    <div className='App'>
+    <div className='App1'>
       <Routes>
         <Route path='/' element={<MovieListPage />}></Route>
         <Route path='new' element={<AddMovieForm />} />

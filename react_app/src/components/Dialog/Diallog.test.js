@@ -1,5 +1,7 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import React from "react";
+import { render, screen } from "@testing-library/react";
 import Dialog from "./Dialog";
+import { expect, jest, test } from "@jest/globals";
 
 const mockedTitle = "ADD MOVIE";
 const mockedContent = <div>{mockedTitle}</div>;

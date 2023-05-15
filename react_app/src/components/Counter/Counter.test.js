@@ -1,3 +1,5 @@
+import React from "react";
+import { expect, test } from "@jest/globals";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { Counter } from "./Counter";
 

@@ -1,3 +1,4 @@
+import React from "react";
 import { genres } from "../../data/data";
 import GenreSelect from "../GenreSelect/GenreSelect";
 import SortControl from "../SortControl/SortControl";
