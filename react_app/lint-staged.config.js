@@ -1,4 +1,4 @@
 module.exports = {
-  "*.{js,jsx}": ["eslint --quiet --fix"],
+  "*.{js,jsx}": ["eslint"],
   "*.css": ["stylelint --fix"],
 };

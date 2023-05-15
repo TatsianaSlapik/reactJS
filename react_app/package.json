@@ -29,7 +29,8 @@
     "cypress:open": "cypress open",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "prepare": "cd .. && husky install react_app/.husky"
+    "prepare": "cd .. && husky install react_app/.husky",
+    "pre-commit": "lint-staged"
   },
   "eslintConfig": {
     "extends": [
@@ -88,5 +89,8 @@
     "webpack": "^5.82.1",
     "webpack-cli": "^5.1.1",
     "webpack-dev-server": "^4.15.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
   }
 }
