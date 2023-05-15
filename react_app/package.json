@@ -28,7 +28,8 @@
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "prepare": "cd .. && husky install react_app/.husky"
   },
   "eslintConfig": {
     "extends": [
@@ -79,7 +80,9 @@
     "eslint": "^8.40.0",
     "eslint-plugin-react": "^7.32.2",
     "html-webpack-plugin": "^5.5.1",
+    "husky": "^8.0.3",
     "jest": "^27.5.1",
+    "lint-staged": "^13.2.2",
     "mini-css-extract-plugin": "^2.7.5",
     "prop-types": "^15.8.1",
     "webpack": "^5.82.1",
