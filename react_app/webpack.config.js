@@ -30,6 +30,10 @@ module.exports = {
         use: ["babel-loader"],
       },
       {
+        test: /\.(ts|tsx)$/,
+        loader: "ts-loader",
+      },
+      {
         test: /\.(png|jpg|gif|svg)$/,
         exclude: [path.resolve(__dirname, "./node_modules")],
         use: {
@@ -49,6 +53,6 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ["*", ".js", ".jsx"],
+    extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
   },
 };

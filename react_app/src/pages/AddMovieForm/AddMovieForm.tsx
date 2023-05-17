@@ -1,17 +1,17 @@
-import React from "react";
 
 import MovieForm from "../../components/MovieForm/MovieForm";
 import Dialog from "../../components/Dialog/Dialog";
 import { useNavigate } from "react-router-dom";
 import { createMovie } from "../../api/api";
 import { v4 as uuidv4 } from "uuid";
+import { IMovie } from "../../typing/typing";
 
-export const initialMovieState = {
+export const initialMovieState: IMovie = {
   title: "",
   tagline: "movie",
   vote_average: 0,
   vote_count: 0,
-  release_date: "",
+  release_date: new Date(),
   poster_path: "",
   overview: "",
   budget: 0,
@@ -24,10 +24,10 @@ export const initialMovieState = {
 const AddMovieForm = () => {
   const navigate = useNavigate();
 
-  const handleSubmit = (formValue) => {
+  const handleSubmit = (formValue: IMovie) => {
     navigate("/");
     createMovie(formValue)
-      .then(function (response) {
+      .then(function () {
         console.log("added movie");
       })
       .catch(() => {

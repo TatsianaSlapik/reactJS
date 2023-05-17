@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import { FC, useEffect } from "react";
 
 import Button from "../Button/Button";
 import { genres as genresDef } from "../../data/data";
 import "./MovieForm.css";
 import { useForm } from "react-hook-form";
+import { IMovie } from "../../typing/typing";
 
 const MOVIE_FORM = {
   TITLE: "TITLE",
@@ -24,7 +25,12 @@ const MOVIE_FORM = {
   BTN_NAME_SUBMIT: "SUBMIT",
 };
 
-const MovieForm = ({ onSubmit, movie }) => {
+interface MovieFormProps {
+  movie: IMovie;
+  onSubmit: (formValue: IMovie) => void;
+}
+
+const MovieForm: FC<MovieFormProps> = ({ onSubmit, movie }) => {
   const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {

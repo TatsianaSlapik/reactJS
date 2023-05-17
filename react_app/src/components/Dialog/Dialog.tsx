@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Portal } from "react-portal";
 
 import Button from "../Button/Button";

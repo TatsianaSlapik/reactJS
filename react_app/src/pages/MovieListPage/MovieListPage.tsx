@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet, useNavigate, useSearchParams } from "react-router-dom";
 import { getMovies } from "../../api/api";
 
@@ -10,6 +10,7 @@ import Search from "../../components/Search/Search";
 
 import "./MovieListPage.css";
 import HeaderImg from "../../img/header.png";
+
 
 const MovieListPage = () => {
   const navigate = useNavigate();
@@ -35,18 +36,21 @@ const MovieListPage = () => {
     getMovies(sortCriterion, activeGenre, searchQuery)
       .then(function (response) {
         setMovieList(
-          response.data.data.length > 0 ? response.data.data : FILMS_DATA
+          response?.data.data.length > 0 ? response?.data.data : FILMS_DATA
         );
 
-        FILMS_DATA.push(...response.data.data);
       })
       .catch(() => {
         setMovieList(FILMS_DATA);
       });
   }, [sortCriterion, activeGenre, searchQuery]);
 
-  const handleSearch = (value) => {
-    setParams({ query: value, ...params });
+  const handleSearch = (value: string) => {
+    setParams({
+      query: value,
+      sortBy: params.sortBy,
+      genre: params.genre,
+    });
     setSearchParams({ query: value });
   };
 
@@ -54,7 +58,7 @@ const MovieListPage = () => {
     setParams({ ...params, sortBy: event.target.value });
     setSearchParams({ sortBy: event.target.value });
   };
-  const handleChangeGenreSelect = (par) => {
+  const handleChangeGenreSelect = (par: string) => {
     setParams({ ...params, genre: par });
     setSearchParams({ genre: par });
   };

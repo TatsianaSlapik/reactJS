@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-
+import { useEffect, useState } from "react";
 import MovieForm from "../../components/MovieForm/MovieForm";
 import Dialog from "../../components/Dialog/Dialog";
 import { useNavigate, useParams } from "react-router-dom";
 import { getMovieById, updateMovie } from "../../api/api";
+import { IMovie } from "../../typing/typing";
 
 const EditMovieForm = () => {
   const navigate = useNavigate();
@@ -20,10 +20,10 @@ const EditMovieForm = () => {
       });
   }, [movieId]);
 
-  const handleSubmit = (formValue) => {
+  const handleSubmit = (formValue: IMovie) => {
     navigate("/");
     updateMovie(formValue)
-      .then(function (response) {
+      .then(function () {
         console.log("update movie");
       })
       .catch(() => {
